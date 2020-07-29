@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "postinstall":"ng build -aot -prod"
+    "postinstall":"cd client && ng build -aot -prod"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
