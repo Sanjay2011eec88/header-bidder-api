@@ -10,24 +10,24 @@ export class AddsService {
 
   config = [
     {
-    company:"xyz",
-    api:'/index?company="xyz'
+      company:"xyz",
+      api:'/index?company=xyz'
     },
     {
       company:"abc",
-      api:'/index?company="abc'
+      api:'/index?company=abc'
     },
     {
       company:"efg",
-      api:'/index?company="efg'
+      api:'/index?company=efg'
     },
     {
       company:"lmn",
-      api:'/index?company="lmn'
+      api:'/index?company=lmn'
     },
     {
       company:"qpr",
-      api:'/index?company="qpr'
+      api:'/index?company=qpr'
     }];
   public getAdvertisements(): Observable<any[]>{
     let advertiseList = [];
@@ -38,6 +38,7 @@ export class AddsService {
   }
 
   public recordClick(addObj:any): Observable<any>{
+    console.log(addObj);
     return this.http.post(`/conversions?company=${addObj.company}&id=${addObj.id}`, {});
   }
 }

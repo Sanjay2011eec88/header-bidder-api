@@ -41,23 +41,23 @@ var AddsService = /** @class */ (function () {
         this.config = [
             {
                 company: "xyz",
-                api: '/index?company="xyz'
+                api: '/index?company=xyz'
             },
             {
                 company: "abc",
-                api: '/index?company="abc'
+                api: '/index?company=abc'
             },
             {
                 company: "efg",
-                api: '/index?company="efg'
+                api: '/index?company=efg'
             },
             {
                 company: "lmn",
-                api: '/index?company="lmn'
+                api: '/index?company=lmn'
             },
             {
                 company: "qpr",
-                api: '/index?company="qpr'
+                api: '/index?company=qpr'
             }
         ];
     }
@@ -70,6 +70,7 @@ var AddsService = /** @class */ (function () {
         return forkJoin_1.forkJoin(advertiseList);
     };
     AddsService.prototype.recordClick = function (addObj) {
+        console.log(addObj);
         return this.http.post("/conversions?company=" + addObj.company + "&id=" + addObj.id, {});
     };
     AddsService = __decorate([
@@ -93,7 +94,7 @@ module.exports = ".container {\n  width:1340px;\n  height: 600px;\n}\n\nheader {
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\n\n  <header>\n    <div class=\"logo\">Client Header Bidder</div>\n  </header>\n\n  <div *ngIf=\"add\">\n    <div class=\"first-box\">\n      <button (click)=onNavigate(add)>\n        <img src={{add.advertismentImage}}>\n      </button>\n    </div>\n  </div>\n\n  <div *ngIf=\"add\">\n    <div class=\"second-box\" >\n      <button (click)=onNavigate(add)>\n        <img src={{add.advertismentImage}}>\n      </button>\n    </div>\n  </div>\n\n  <footer>\n    <div>Website Info</div>\n  </footer>\n\n</div>\n"
+module.exports = "<div class=\"container\">\n\n  <header>\n    <div class=\"logo\">Client Header Bidder</div>\n  </header>\n\n  <div *ngIf=\"add\">\n    <div class=\"first-box\">\n      <button (click)=onNavigate(add)>\n        <img src={{add.advertismentImage}}>\n      </button>\n    </div>\n  </div>\n\n  <div *ngIf=\"add\">\n    <div class=\"second-box\" >\n      <button (click)=onNavigate(add)>\n        <img src={{add.advertismentImage}}>\n      </button>\n    </div>\n  </div>\n\n  <footer>\n    <div></div>\n  </footer>\n\n</div>\n"
 
 /***/ }),
 
@@ -125,9 +126,7 @@ var AppComponent = /** @class */ (function () {
     };
     AppComponent.prototype.onNavigate = function (add) {
         window.open(add.url);
-        this.addService.recordClick(add).subscribe(function (res) {
-            console.log(res);
-        });
+        this.addService.recordClick(add).subscribe(function (res) { });
     };
     //For getting max CPI
     AppComponent.prototype.getAdsForSlots = function () {
@@ -151,7 +150,6 @@ var AppComponent = /** @class */ (function () {
                 }
             }
             _this.add = max;
-            console.log(_this.add);
         });
     };
     AppComponent = __decorate([

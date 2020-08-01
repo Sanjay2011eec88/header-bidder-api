@@ -17,13 +17,9 @@ export class AppComponent {
     this.getAdsForSlots();
   }
 
-
   onNavigate(add){
     window.open(add.url);
-    this.addService.recordClick(add).subscribe((res) => {
-      console.log(res);
-    })
-
+    this.addService.recordClick(add).subscribe((res) => {})
   }
 
   //For getting max CPI
@@ -44,8 +40,6 @@ export class AppComponent {
         }
       }
       this.add = max;
-      console.log(this.add);
-
     });
 
   }

@@ -16,14 +16,15 @@ class GlobalUtil{
     }
 
     static getGlobalMemoryByKey(obj){
-        console.log(globalMemory);
-        console.log(obj);
-        console.log(globalMemory[obj.key]);
         if(obj.key in globalMemory){
             return globalMemory[obj.key]
         }else{
             return {}
         }
+    }
+
+    static getAllCount(){
+        return globalMemory;
     }
 }
 
