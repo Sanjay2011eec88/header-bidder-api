@@ -17,100 +17,213 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 
 /***/ }),
 
+/***/ "./src/_service/adds.service.ts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var http_1 = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+var forkJoin_1 = __webpack_require__("./node_modules/rxjs/_esm5/observable/forkJoin.js");
+var AddsService = /** @class */ (function () {
+    function AddsService(http) {
+        this.http = http;
+        this.config = [
+            {
+                company: "xyz",
+                api: '/index?company="xyz'
+            },
+            {
+                company: "abc",
+                api: '/index?company="abc'
+            },
+            {
+                company: "efg",
+                api: '/index?company="efg'
+            },
+            {
+                company: "lmn",
+                api: '/index?company="lmn'
+            },
+            {
+                company: "qpr",
+                api: '/index?company="qpr'
+            }
+        ];
+    }
+    AddsService.prototype.getAdvertisements = function () {
+        var advertiseList = [];
+        for (var _i = 0, _a = this.config; _i < _a.length; _i++) {
+            var companies = _a[_i];
+            advertiseList.push(this.http.get(companies.api));
+        }
+        return forkJoin_1.forkJoin(advertiseList);
+    };
+    AddsService.prototype.recordClick = function (addObj) {
+        return this.http.post("/conversions?company=" + addObj.company + "&id=" + addObj.id, {});
+    };
+    AddsService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.HttpClient])
+    ], AddsService);
+    return AddsService;
+}());
+exports.AddsService = AddsService;
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ""
+module.exports = ".container {\n  width:1340px;\n  height: 600px;\n}\n\nheader {\n  width:1248px;\n  float:left;\n  background: pink;\n  height: 50px;\n  margin-left: 46px;\n}\n\n.logo {\n  -moz-text-align-last: center;\n       text-align-last: center;\n  padding: 15px\n}\n\n.menu {\n  float: right;\n  padding: 15px\n}\n\n.first-box {\n  width:500px;\n  float:left;\n  height: 450px;\n  margin: 50px\n}\n\n/*.first-box p {*/\n\n/*color: #ffffff;*/\n\n/*padding-left: 40px;*/\n\n/*padding-top: 50px;*/\n\n/*}*/\n\n.second-box {\n  width:500px;\n  height: 450px;\n  float:right;\n  margin: 50px\n}\n\n/*.second-box p {*/\n\n/*color: #ffffff;*/\n\n/*padding-left: 11px;*/\n\n/*padding-top: 50px;*/\n\n/*}*/\n\nfooter {\n  width:1248px;\n  float:left;\n  background: black;\n  height: 50px;\n  color: #ffffff;\n  margin-left: 46px;\n}\n\nfooter div {\n  padding: 15px;\n}\n\nimg{\n  width:450px;\n  height: 450px;\n}\n"
 
 /***/ }),
 
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <img width=\"300\" alt=\"Angular Logo\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\">\n</div>\n<h2>Here are some links to help you start: </h2>\n<ul>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/angular/angular-cli/wiki\">CLI Documentation</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">Angular blog</a></h2>\n  </li>\n</ul>\n\n"
+module.exports = "<div class=\"container\">\n\n  <header>\n    <div class=\"logo\">Client Header Bidder</div>\n  </header>\n\n  <div *ngIf=\"add\">\n    <div class=\"first-box\">\n      <button (click)=onNavigate(add)>\n        <img src={{add.advertismentImage}}>\n      </button>\n    </div>\n  </div>\n\n  <div *ngIf=\"add\">\n    <div class=\"second-box\" >\n      <button (click)=onNavigate(add)>\n        <img src={{add.advertismentImage}}>\n      </button>\n    </div>\n  </div>\n\n  <footer>\n    <div>Website Info</div>\n  </footer>\n\n</div>\n"
 
 /***/ }),
 
 /***/ "./src/app/app.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var adds_service_1 = __webpack_require__("./src/_service/adds.service.ts");
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(addService) {
+        this.addService = addService;
         this.title = 'app';
+        this.add = null;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.getAdsForSlots();
+    };
+    AppComponent.prototype.onNavigate = function (add) {
+        window.open(add.url);
+        this.addService.recordClick(add).subscribe(function (res) {
+            console.log(res);
+        });
+    };
+    //For getting max CPI
+    AppComponent.prototype.getAdsForSlots = function () {
+        var _this = this;
+        this.addService.getAdvertisements().subscribe(function (results) {
+            var max = null;
+            for (var _i = 0, results_1 = results; _i < results_1.length; _i++) {
+                var list = results_1[_i];
+                if ('listOfAdvertisements' in list) {
+                    for (var _a = 0, _b = list.listOfAdvertisements; _a < _b.length; _a++) {
+                        var add = _b[_a];
+                        if (max !== null) {
+                            if (max.cpi < add.cpi) {
+                                max = add;
+                            }
+                        }
+                        else {
+                            max = add;
+                        }
+                    }
+                }
+            }
+            _this.add = max;
+            console.log(_this.add);
+        });
+    };
     AppComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+        core_1.Component({
             selector: 'app-root',
             template: __webpack_require__("./src/app/app.component.html"),
             styles: [__webpack_require__("./src/app/app.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [adds_service_1.AddsService])
     ], AppComponent);
     return AppComponent;
 }());
-
+exports.AppComponent = AppComponent;
 
 
 /***/ }),
 
 /***/ "./src/app/app.module.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("./src/app/app.component.ts");
+
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
-
-
+Object.defineProperty(exports, "__esModule", { value: true });
+var platform_browser_1 = __webpack_require__("./node_modules/@angular/platform-browser/esm5/platform-browser.js");
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var http_1 = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+var common_1 = __webpack_require__("./node_modules/@angular/common/esm5/common.js");
+var app_component_1 = __webpack_require__("./src/app/app.component.ts");
+var adds_service_1 = __webpack_require__("./src/_service/adds.service.ts");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* NgModule */])({
+        core_1.NgModule({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]
+                app_component_1.AppComponent
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]
+                platform_browser_1.BrowserModule,
+                http_1.HttpClientModule,
+                common_1.CommonModule
             ],
-            providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
+            providers: [
+                adds_service_1.AddsService
+            ],
+            bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
     return AppModule;
 }());
-
+exports.AppModule = AppModule;
 
 
 /***/ }),
 
 /***/ "./src/environments/environment.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
+
 // The file contents for the current environment will overwrite these during build.
 // The build system defaults to the dev environment which uses `environment.ts`, but if you do
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
-var environment = {
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.environment = {
     production: false
 };
 
@@ -118,22 +231,19 @@ var environment = {
 /***/ }),
 
 /***/ "./src/main.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("./node_modules/@angular/platform-browser-dynamic/esm5/platform-browser-dynamic.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__("./src/app/app.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 
-
-
-
-if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* enableProdMode */])();
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+var platform_browser_dynamic_1 = __webpack_require__("./node_modules/@angular/platform-browser-dynamic/esm5/platform-browser-dynamic.js");
+var app_module_1 = __webpack_require__("./src/app/app.module.ts");
+var environment_1 = __webpack_require__("./src/environments/environment.ts");
+if (environment_1.environment.production) {
+    core_1.enableProdMode();
 }
-Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
+platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1.AppModule)
     .catch(function (err) { return console.log(err); });
 
 

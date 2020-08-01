@@ -1,0 +1,66 @@
+.container {
+  width:1340px;
+  height: 600px;
+}
+
+header {
+  width:1248px;
+  float:left;
+  background: pink;
+  height: 50px;
+  margin-left: 46px;
+}
+
+.logo {
+  text-align-last: center;
+  padding: 15px
+}
+
+.menu {
+  float: right;
+  padding: 15px
+}
+
+.first-box {
+  width:500px;
+  float:left;
+  height: 450px;
+  margin: 50px
+}
+
+/*.first-box p {*/
+  /*color: #ffffff;*/
+  /*padding-left: 40px;*/
+  /*padding-top: 50px;*/
+/*}*/
+
+.second-box {
+  width:500px;
+  height: 450px;
+  float:right;
+  margin: 50px
+}
+
+/*.second-box p {*/
+  /*color: #ffffff;*/
+  /*padding-left: 11px;*/
+  /*padding-top: 50px;*/
+/*}*/
+
+footer {
+  width:1248px;
+  float:left;
+  background: black;
+  height: 50px;
+  color: #ffffff;
+  margin-left: 46px;
+}
+
+footer div {
+  padding: 15px;
+}
+
+img{
+  width:450px;
+  height: 450px;
+}
