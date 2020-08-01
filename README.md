@@ -10,6 +10,6 @@ server.
 [Demo Link](https://headerbidder.herokuapp.com)
 
 * Once you click on some Ads click on [this](https://headerbidder.herokuapp.com/conversions) API to see the number of 
-clicks recorded in memory. 
+clicks recorded in memory which shows company as key and id with count. 
  
 
